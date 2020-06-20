@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) =>{
     message.delete()
 
+    console.log("L'utilisateur " + message.author.username + " a éxécuté la commande s/ban")
 if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":x: | Vous n'avez pas la permission de faire cela !").then(m => m.delete(10000))
     let user = message.mentions.members.first();
     if(!user) return message.channel.send(":x: | Veuillez Mentionner un utilisateur !").then(m => {
@@ -16,7 +17,7 @@ if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(":x
         user.ban(reason);
     }
     setTimeout(banUser, 1000)
-    message.channel.send("L'utilisateur a bien été BAN !")
+    message.channel.send("L'utilisateur a bien été BAN ! <:snif2:713026935780933724>")
 }
 
 module.exports.help = {
